@@ -82,6 +82,20 @@ body{
 .bomb{
     background-color: red;
 }
+.game-alert{
+    color: white;
+    text-shadow: 2px 2px #4b4b4b;
+    font-weight: bold;
+    font-size: 4rem;
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom:0;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
 /* ? footer */
 footer{
     height: 9vh;
