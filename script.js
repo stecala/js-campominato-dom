@@ -9,9 +9,6 @@ startGame.addEventListener('click', function () {
     let length;
 
     const bombList = [];
-    for(let i=0; i<16; i++){
-        bombList[i]=randomNumber(bombList, 100, 1);
-    }
 
     console.table(bombList);
     if (difficulty.value === 'facile') {
@@ -31,6 +28,7 @@ startGame.addEventListener('click', function () {
         alert('NON FARE IL FURBETTO');
     }
     drawGrid(diff, length);
+    indexOfBomb(bombList, length);
 })
 reset.addEventListener('click', function () {
     wrapper.classList.add('visibility');
@@ -60,13 +58,18 @@ function mySquare(diff) {
 }
 function randomNumber(blackList, max, min) {
     let randomNumber;
-    let check=false;
+    let check = false;
     while (check === false) {
         randomNumber = Math.floor(Math.random() * ((max + 1) - min) + min);
         if (!blackList.includes(randomNumber)) {
             check = true;
         }
         return randomNumber;
+    }
+}
+function indexOfBomb(blackList, length) {
+    for (let i = 0; i < 16; i++) {
+        blackList[i] = randomNumber(blackList, length, 1);
     }
 }
 
