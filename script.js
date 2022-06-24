@@ -2,6 +2,7 @@ const startGame = document.getElementById('start-game');
 const wrapper = document.querySelector('.wrapper');
 const difficulty = document.getElementById('difficulty');
 const reset = document.getElementById('reset');
+
 startGame.addEventListener('click', function () {
     wrapper.classList.remove('visibility');
     let diff;
@@ -66,7 +67,7 @@ function drawGrid(diff, length, blackList) {
         newSquare.addEventListener('click', function () {
             if ((blackList.includes(i+1))===true) {
                 newSquare.classList.add('bomb');
-                showAlert('Hai clickato una bomba', wrapper, point);
+                showAlert('Hai clickato una bomba', boardContainer, point);
             }
             else {
                 if(!newSquare.classList.contains('active')){
@@ -81,9 +82,8 @@ function drawGrid(diff, length, blackList) {
 }
 
 function showAlert(message, parent, point){
-    let control = true;
         const alertMessage = '<div class="game-alert"><div class="game-alert-message">'+message+'<br> Ed hai totalizzato '+point+' punti.</div></div>';
-        parent.innerHTML = parent.innerHTML + alertMessage;
+        parent.innerHTML += alertMessage;
   }
 
 
