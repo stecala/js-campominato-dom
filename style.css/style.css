@@ -83,6 +83,7 @@ body{
     background-color: red;
 }
 .game-alert{
+    text-align: center;
     color: white;
     text-shadow: 2px 2px #4b4b4b;
     font-weight: bold;

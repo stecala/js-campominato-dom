@@ -60,29 +60,27 @@ function indexOfBomb(blackList, length) {
 function drawGrid(diff, length, blackList) {
     const boardContainer = document.querySelector('.board-cont');
     boardContainer.innerHTML = '';
+    let point=0;
     for (let i = 0; i < length; i++) {
         const newSquare = mySquare(diff);
         newSquare.addEventListener('click', function () {
             if ((blackList.includes(i+1))===true) {
                 newSquare.classList.add('bomb');
-                showAlert('Hai clickato una bomba', wrapper);
+                showAlert('Hai clickato una bomba', wrapper, point);
             }
             else {
                 newSquare.classList.add('active');
-                console.log(i + 1);
+                point++;
+                console.log(point);
             }
         })
         boardContainer.append(newSquare);
     }
 }
 
-function showAlert(message, parent){
+function showAlert(message, parent, point){
   
-    const alertMessage = `
-    <div class="game-alert">
-      <div class="game-alert-message">${message}</div>
-    </div>
-    `;
+    const alertMessage = '<div class="game-alert"><div class="game-alert-message">'+message+'<br> Ed hai totalizzato '+point+' punti.</div></div>';
   
     parent.innerHTML = parent.innerHTML + alertMessage;
   }
