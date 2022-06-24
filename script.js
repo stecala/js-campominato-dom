@@ -7,28 +7,40 @@ startGame.addEventListener('click', function () {
     wrapper.classList.remove('visibility');
     let diff;
     let length;
+
+    const bombList = [];
+    for(let i=0; i<16; i++){
+        bombList[i]=randomNumber(bombList, 100, 1);
+    }
+
+    console.table(bombList);
     if (difficulty.value === 'facile') {
-        diff='easy';
-        length=100;
+        diff = 'easy';
+        length = 100;
     }
     else if (difficulty.value === 'medio') {
-        diff='medium';
-        length=81;
+        diff = 'medium';
+        length = 81;
 
     }
-    else if(difficulty.value==='difficile') {
-        diff='hard';
-        length=49;
+    else if (difficulty.value === 'difficile') {
+        diff = 'hard';
+        length = 49;
     }
-    else{
+    else {
         alert('NON FARE IL FURBETTO');
     }
-    drawGrid(diff,length);
+    drawGrid(diff, length);
 })
 reset.addEventListener('click', function () {
     wrapper.classList.add('visibility');
 })
-function drawGrid(diff,length){
+
+
+
+
+
+function drawGrid(diff, length) {
     const boardContainer = document.querySelector('.board-cont');
     boardContainer.innerHTML = '';
     for (let i = 0; i < length; i++) {
@@ -46,8 +58,17 @@ function mySquare(diff) {
     nowSquare.classList.add(diff);
     return nowSquare;
 }
-
-
+function randomNumber(blackList, max, min) {
+    let randomNumber;
+    let check=false;
+    while (check === false) {
+        randomNumber = Math.floor(Math.random() * ((max + 1) - min) + min);
+        if (!blackList.includes(randomNumber)) {
+            check = true;
+        }
+        return randomNumber;
+    }
+}
 
 
 
