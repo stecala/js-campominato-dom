@@ -69,8 +69,10 @@ function drawGrid(diff, length, blackList) {
                 showAlert('Hai clickato una bomba', wrapper, point);
             }
             else {
+                if(!newSquare.classList.contains('active')){
+                    point++
+                }
                 newSquare.classList.add('active');
-                point++;
                 console.log(point);
             }
         })
@@ -79,10 +81,9 @@ function drawGrid(diff, length, blackList) {
 }
 
 function showAlert(message, parent, point){
-  
-    const alertMessage = '<div class="game-alert"><div class="game-alert-message">'+message+'<br> Ed hai totalizzato '+point+' punti.</div></div>';
-  
-    parent.innerHTML = parent.innerHTML + alertMessage;
+    let control = true;
+        const alertMessage = '<div class="game-alert"><div class="game-alert-message">'+message+'<br> Ed hai totalizzato '+point+' punti.</div></div>';
+        parent.innerHTML = parent.innerHTML + alertMessage;
   }
 
 
