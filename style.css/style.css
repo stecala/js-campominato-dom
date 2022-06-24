@@ -79,6 +79,9 @@ body{
 .active{
     background-color: lightcoral;
 }
+.bomb{
+    background-color: red;
+}
 /* ? footer */
 footer{
     height: 9vh;

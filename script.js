@@ -67,7 +67,6 @@ function drawGrid(diff, length, blackList) {
             if ((blackList.includes(i+1))===true) {
                 newSquare.classList.add('bomb');
                 newSquare.innerHTML = '';
-                new
             }
             else {
                 newSquare.classList.add('active');
