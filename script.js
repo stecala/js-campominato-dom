@@ -5,6 +5,7 @@ const reset = document.getElementById('reset');
 
 startGame.addEventListener('click', function () {
     wrapper.classList.remove('visibility');
+    wrapper.classList.add('visibility2');
     let diff;
     let length;
     const bombList = [];
@@ -29,6 +30,7 @@ startGame.addEventListener('click', function () {
     console.log(bombList);
 })
 reset.addEventListener('click', function () {
+    wrapper.classList.remove('visibility2');
     wrapper.classList.add('visibility');
 })
 
